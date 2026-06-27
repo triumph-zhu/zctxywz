@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future Career Bootcamp · 职场特训营数字知识库</title>
+  <meta name="description" content="从校园到职场，进入你的职业成长加速系统。汇集每一期职场特训营课程文稿、实战经验与师兄师姐寄语。" />
+  <link rel="stylesheet" href="styles/global.css?v=3" />
+  <script>(function(){if(!localStorage.getItem('fcb-theme-v2')){localStorage.removeItem('fcb-theme');localStorage.setItem('fcb-theme-v2','1');}var t=localStorage.getItem('fcb-theme')||'dark';document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body data-page="home">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Future Career Bootcamp · 数字知识库</div>
+          <h1>进入职场之前，<br />先完成一次<span class="hl">认知升级</span>。</h1>
+          <p class="lead">一个面向每一期学生开放的职场特训营数字知识库，沉淀课程文稿、成长经验、求职方法与前辈寄语。</p>
+          <div class="actions">
+            <a class="btn primary" href="learn.html">进入学习资料</a>
+            <a class="btn ghost" href="messages.html">查看师兄师姐寄语</a>
+            <button class="btn ghost" id="replay-cover" type="button">✦ 重温封面星河</button>
+          </div>
+        </div>
+
+        <!-- 未来训练营仪表盘 HUD -->
+        <div class="hud reveal">
+          <div class="hud-title"><span>CAREER GROWTH SYSTEM</span><span><i class="hud-dot"></i> ONLINE</span></div>
+          <div class="hud-bars">
+            <div class="hud-row"><span>职场认知</span><div class="hud-bar"><span style="width:88%"></span></div><span>88%</span></div>
+            <div class="hud-row"><span>简历表达</span><div class="hud-bar"><span style="width:76%"></span></div><span>76%</span></div>
+            <div class="hud-row"><span>面试能力</span><div class="hud-bar"><span style="width:82%"></span></div><span>82%</span></div>
+            <div class="hud-row"><span>职场沟通</span><div class="hud-bar"><span style="width:70%"></span></div><span>70%</span></div>
+            <div class="hud-row"><span>职业规划</span><div class="hud-bar"><span style="width:64%"></span></div><span>64%</span></div>
+          </div>
+          <div class="hud-nodes">
+            <div class="hud-node"><b>6+</b><small>课程节点</small></div>
+            <div class="hud-node"><b>3</b><small>训练期数</small></div>
+            <div class="hud-node"><b>9+</b><small>经验信号</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- 数据概览 -->
+    <section class="block">
+      <div class="section-head reveal">
+        <div><div class="eyebrow">System Overview</div><h2 class="section-title">职业成长驾驶舱</h2>
+        <p class="section-sub">让每一次学习都被沉淀，让每一期学生都能站在前人的经验之上继续出发。</p></div>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <!-- 了解训练营入口 -->
+    <section class="block">
+      <a class="glass about-cta reveal" href="about.html">
+        <div class="about-cta-text">
+          <div class="cta-eyebrow">About the Camp</div>
+          <h3>深圳校友会现经管分会 · 职场特训营</h3>
+          <p>已历八届 · 多名学员入职世界 500 强 · 4000+ 人才池优中选优 · 精英导师团与资源圈赋能。了解这套从校园到职场的成长系统。</p>
+        </div>
+        <span class="btn primary about-cta-btn">了解训练营 →</span>
+      </a>
+    </section>
+
+    <!-- 学习资料 -->
+    <section class="block">
+      <div class="section-head">
+        <div class="reveal"><div class="eyebrow">Learning Materials</div><h2 class="section-title">学习资料</h2>
+        <p class="section-sub">从认知到求职，按期数浏览或搜索全部课程文稿与实战经验。</p></div>
+        <a class="btn ghost reveal" href="learn.html">查看全部学习资料</a>
+      </div>
+      <div class="grid cols-3" id="hot-courses"></div>
+      <hr class="divider" style="margin:32px 0">
+      <div class="section-head" style="margin-bottom:20px">
+        <div class="reveal"><div class="eyebrow">Archive</div><h2 class="section-title">期数入口</h2>
+        <p class="section-sub">每一期训练营，都是一份不断进化的职业成长样本。</p></div>
+      </div>
+      <div class="grid cols-3 reveal" id="home-cohorts"></div>
+    </section>
+
+    <!-- 师兄师姐寄语精选 -->
+    <section class="block">
+      <div class="section-head">
+        <div class="reveal"><div class="eyebrow">Signals</div><h2 class="section-title">来自前辈的经验信号</h2>
+        <p class="section-sub">他们已经走过的路，会成为你少走弯路的地图。</p></div>
+        <a class="btn ghost reveal" href="messages.html">查看更多寄语</a>
+      </div>
+      <div class="grid cols-3" id="hot-messages"></div>
+    </section>
+
+    <!-- 职业路径规划入口 -->
+    <section class="block">
+      <a class="glass about-cta reveal" href="career-path.html">
+        <div class="about-cta-text">
+          <div class="cta-eyebrow">Career Path Planner</div>
+          <h3>职业路径规划</h3>
+          <p>填写你的背景与意向，AI 顾问智能分析最合适的职业发展路径，给出个性化里程碑与行动指南。</p>
+        </div>
+        <span class="btn primary about-cta-btn">开始规划 →</span>
+      </a>
+    </section>
+
+    <!-- 面试模拟入口 -->
+    <section class="block">
+      <a class="glass about-cta reveal" href="interview.html">
+        <div class="about-cta-text">
+          <div class="cta-eyebrow">Interview Simulator</div>
+          <h3>AI 面试模拟器</h3>
+          <p>仿真面试场景，AI 驱动的面试官实时对话与点评。支持 HR 面、行为面、情景面、答辩面，沉浸式练习让你从容应对真实面试。</p>
+        </div>
+        <span class="btn primary about-cta-btn">开始模拟 →</span>
+      </a>
+    </section>
+
+  </main>
+
+  <script src="scripts/cover.js?v=3"></script>
+  <script src="scripts/data.js?v=3"></script>
+  <script src="scripts/data-loader.js?v=3"></script>
+  <script src="scripts/app.js?v=3"></script>
+</body>
+</html>
