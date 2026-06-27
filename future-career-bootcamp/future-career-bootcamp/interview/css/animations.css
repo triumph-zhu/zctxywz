@@ -1,0 +1,71 @@
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes scoreCountUp {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes progressPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Staggered children animation */
+#interview-app .stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+#interview-app .stagger-children > *:nth-child(1) { animation-delay: 0s; }
+#interview-app .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+#interview-app .stagger-children > *:nth-child(3) { animation-delay: 0.2s; }
+#interview-app .stagger-children > *:nth-child(4) { animation-delay: 0.3s; }
+#interview-app .stagger-children > *:nth-child(5) { animation-delay: 0.4s; }
+#interview-app .stagger-children > *:nth-child(6) { animation-delay: 0.5s; }
+
+/* Typing cursor */
+#interview-app .typing-cursor::after {
+  content: '▌';
+  animation: cursorBlink 0.8s infinite;
+  color: var(--color-accent);
+  margin-left: 2px;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

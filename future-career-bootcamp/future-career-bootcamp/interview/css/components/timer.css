@@ -1,0 +1,28 @@
+/* Timer component */
+#interview-app .timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+#interview-app .timer-ring {
+  flex-shrink: 0;
+}
+
+#interview-app .timer-ring circle:last-child {
+  transition: stroke-dashoffset 1s linear, stroke 0.3s ease;
+}
+
+#interview-app .timer--warning {
+  color: var(--color-danger);
+  animation: timerWarning 1s infinite;
+}
+
+@keyframes timerWarning {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

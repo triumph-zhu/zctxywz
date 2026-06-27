@@ -1,0 +1,30 @@
+/* =========================================================
+   Career Path Planner · CSS Variables
+   作用域隔离：仅在 career-path 页面生效
+   ========================================================= */
+
+body[data-page="careerpath"] #career-app {
+  /* 复用 bootcamp 全局变量，覆盖部分面试/办公风格变量 */
+  --career-max-width: 680px;
+  --career-radius: 12px;
+  --career-radius-sm: 8px;
+  --career-transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* 深色主题色彩 - 延续 bootcamp 风格 */
+  --career-card-bg: rgba(255, 255, 255, 0.04);
+  --career-card-border: rgba(180, 195, 255, 0.12);
+  --career-card-hover: rgba(155, 108, 255, 0.45);
+  --career-tag-bg: rgba(255, 255, 255, 0.06);
+  --career-tag-border: rgba(180, 195, 255, 0.15);
+  --career-tag-active-bg: rgba(155, 108, 255, 0.15);
+  --career-tag-active-border: rgba(155, 108, 255, 0.5);
+  --career-input-bg: rgba(255, 255, 255, 0.04);
+  --career-input-border: rgba(180, 195, 255, 0.15);
+  --career-input-focus: rgba(155, 108, 255, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="careerpath"] #career-app {
+    --career-transition: 0ms;
+  }
+}

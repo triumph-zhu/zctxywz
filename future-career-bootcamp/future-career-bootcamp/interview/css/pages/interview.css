@@ -1,0 +1,484 @@
+/* Interview scene page - 重构版 */
+#interview-app .interview-page {
+  height: calc(100vh - var(--nav-h, 70px));
+  height: calc(100dvh - var(--nav-h, 70px));
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===== Top bar - 紧凑布局 ===== */
+#interview-app .interview-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-divider);
+  flex-shrink: 0;
+  gap: 8px;
+  min-height: 44px;
+}
+
+#interview-app .interview-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+#interview-app .interview-back-btn {
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+#interview-app .interview-back-btn:hover {
+  background: var(--color-divider);
+}
+
+#interview-app .interview-type-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(26, 188, 156, 0.1);
+  color: var(--color-accent);
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#interview-app .interview-interviewer-info {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#interview-app .interview-topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#interview-app .interview-topbar-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#interview-app .btn-end-interview {
+  font-size: 12px !important;
+  color: var(--color-text-secondary);
+  padding: 4px 10px !important;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+#interview-app .btn-end-interview:hover {
+  color: var(--color-danger);
+  background: rgba(231, 76, 60, 0.08);
+}
+
+/* Progress bar under topbar */
+#interview-app .interview-progress-bar {
+  height: 2px;
+  background: var(--color-divider);
+  flex-shrink: 0;
+}
+
+#interview-app .interview-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+  transition: width var(--transition-base);
+  border-radius: 0 1px 1px 0;
+}
+
+/* ===== Office Scene - 适配优化 ===== */
+#interview-app .office-scene {
+  position: relative;
+  height: 200px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg,
+      var(--color-office-wall) 0%,
+      var(--color-office-wall-dark) 50%,
+      var(--color-office-desk) 50%,
+      var(--color-office-desk-dark) 100%);
+}
+
+/* Window */
+#interview-app .office-window {
+  position: absolute;
+  top: 16px;
+  right: 10%;
+  width: 80px;
+  height: 100px;
+  border: 3px solid var(--color-office-curtain);
+  background: linear-gradient(180deg, #a8d8ea 0%, #87ceeb 40%, #b8d4e3 100%);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#interview-app .office-window-cross-h,
+#interview-app .office-window-cross-v {
+  position: absolute;
+  background: var(--color-office-curtain);
+  z-index: 2;
+}
+
+#interview-app .office-window-cross-h {
+  top: 50%; left: 0; right: 0;
+  height: 3px;
+  transform: translateY(-50%);
+}
+
+#interview-app .office-window-cross-v {
+  left: 50%; top: 0; bottom: 0;
+  width: 3px;
+  transform: translateX(-50%);
+}
+
+#interview-app .office-window-blind {
+  position: absolute;
+  left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(180deg, #f5f0e8 0%, #e8e0d0 100%);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  z-index: 1;
+}
+
+#interview-app .office-sunlight {
+  position: absolute;
+  bottom: 0; right: 5%;
+  width: 35%; height: 45%;
+  background: linear-gradient(135deg,
+    rgba(255, 248, 220, 0.25) 0%,
+    rgba(255, 248, 220, 0.08) 60%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+#interview-app .office-bookshelf {
+  position: absolute;
+  left: 4%; top: 12%;
+  width: 50px; height: 70px;
+}
+
+#interview-app .office-bookshelf-shelf {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--color-office-desk);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+#interview-app .office-bookshelf-shelf--top { top: 0; }
+#interview-app .office-bookshelf-shelf--mid { top: 50%; }
+#interview-app .office-bookshelf-shelf--bot { bottom: 0; }
+
+#interview-app .office-bookshelf-side {
+  position: absolute; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--color-office-desk-dark);
+}
+
+#interview-app .office-bookshelf-side--left { left: 0; }
+#interview-app .office-bookshelf-side--right { right: 0; }
+
+#interview-app .office-book {
+  display: inline-block;
+  border-radius: 1px 2px 2px 1px;
+  box-shadow: inset -1px 0 0 rgba(0,0,0,0.15);
+  vertical-align: bottom;
+}
+
+/* Interviewer in office */
+#interview-app .interviewer-in-office {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 190px;
+  z-index: 5;
+}
+
+/* ===== Main chat area - 弹性布局 ===== */
+#interview-app .interview-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--color-surface);
+  margin: 6px 8px 8px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* ===== Countdown overlay ===== */
+#interview-app .countdown-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.3s ease-out;
+}
+
+#interview-app .countdown-content {
+  text-align: center;
+  color: #fff;
+}
+
+#interview-app .countdown-label {
+  font-size: 18px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 12px;
+  letter-spacing: 4px;
+}
+
+#interview-app .countdown-number {
+  font-size: 96px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-accent);
+  text-shadow: 0 0 40px rgba(26, 188, 156, 0.4);
+}
+
+#interview-app .countdown-sublabel {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-top: 10px;
+}
+
+@keyframes countdownPop {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+#interview-app .countdown-pop {
+  animation: countdownPop 0.6s ease-out;
+}
+
+#interview-app .countdown-fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+/* ===== Interview end overlay ===== */
+#interview-app .interview-end-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.5s ease-out;
+}
+
+#interview-app .interview-end-content {
+  text-align: center;
+  color: #fff;
+}
+
+#interview-app .interview-end-icon {
+  margin-bottom: var(--space-md);
+}
+
+#interview-app .interview-end-text {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 6px;
+}
+
+#interview-app .interview-end-sub {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
+@keyframes drawCircle {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+#interview-app .end-circle-anim {
+  animation: drawCircle 0.8s ease-out forwards;
+}
+
+#interview-app .end-check-anim {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: drawCheck 0.4s ease-out 0.6s forwards;
+}
+
+/* ===== Transition flash ===== */
+#interview-app .interview-transition-flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  pointer-events: none;
+  z-index: 50;
+  animation: transitionFlash 0.4s ease-out forwards;
+}
+
+@keyframes transitionFlash {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ===== Responsive ===== */
+
+/* 平板 / 小桌面 */
+@media (max-width: 768px) {
+  #interview-app .office-scene {
+    height: 160px;
+  }
+
+  #interview-app .interviewer-in-office {
+    width: 120px;
+    height: 165px;
+  }
+
+  #interview-app .office-window {
+    width: 65px;
+    height: 80px;
+  }
+}
+
+/* 手机 */
+@media (max-width: 600px) {
+  #interview-app .office-scene {
+    height: 130px;
+  }
+
+  #interview-app .interviewer-in-office {
+    width: 100px;
+    height: 140px;
+  }
+
+  #interview-app .office-window {
+    width: 50px;
+    height: 65px;
+    top: 10px;
+  }
+
+  #interview-app .office-bookshelf {
+    display: none;
+  }
+
+  #interview-app .interview-chat {
+    margin: 4px;
+    border-radius: var(--radius-md);
+  }
+
+  #interview-app .chat-bubble {
+    max-width: 90%;
+  }
+
+  #interview-app .interview-interviewer-info {
+    display: none;
+  }
+
+  #interview-app .interview-topbar-center {
+    gap: 6px;
+  }
+
+  #interview-app .interview-topbar {
+    padding: 4px 8px;
+  }
+
+  #interview-app .countdown-number {
+    font-size: 72px;
+  }
+
+  #interview-app .interview-end-text {
+    font-size: 20px;
+    letter-spacing: 4px;
+  }
+}
+
+/* 小手机 */
+@media (max-width: 400px) {
+  #interview-app .office-scene {
+    height: 100px;
+  }
+
+  #interview-app .interviewer-in-office {
+    width: 80px;
+    height: 115px;
+  }
+
+  #interview-app .office-window {
+    width: 40px;
+    height: 50px;
+  }
+
+  #interview-app .interview-type-badge {
+    display: none;
+  }
+
+  #interview-app .btn-end-interview {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+  }
+}
+
+/* 横屏手机 - 减少办公室高度，增加聊天空间 */
+@media (max-height: 500px) {
+  #interview-app .office-scene {
+    height: 80px;
+  }
+
+  #interview-app .interviewer-in-office {
+    width: 70px;
+    height: 100px;
+  }
+
+  #interview-app .office-window,
+  #interview-app .office-bookshelf {
+    display: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #interview-app .countdown-pop,
+  #interview-app .end-circle-anim,
+  #interview-app .end-check-anim,
+  #interview-app .interview-transition-flash {
+    animation: none !important;
+  }
+  #interview-app .countdown-fade-out {
+    opacity: 0;
+  }
+}

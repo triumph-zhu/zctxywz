@@ -1,0 +1,161 @@
+/* =========================================================
+   Career Path · Result Page
+   ========================================================= */
+
+#career-app .result-page {
+  padding-bottom: 60px;
+}
+
+/* Path header */
+#career-app .result-path-title {
+  font-family: var(--serif, "Noto Serif SC", Georgia, serif);
+  color: var(--t-1, #ffffff);
+  font-size: clamp(22px, 3.5vw, 30px);
+  font-weight: 400;
+  margin-bottom: 10px;
+  letter-spacing: 0.03em;
+}
+
+#career-app .result-path-title b {
+  font-weight: 600;
+  background: var(--grad, linear-gradient(110deg, #5ad8ff, #9b6cff 45%, #ff7eb6 75%, #f5c971));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#career-app .result-path-desc {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+/* Section divider */
+#career-app .result-section {
+  margin-bottom: 28px;
+}
+
+#career-app .result-section-title {
+  font-family: var(--serif, "Noto Serif SC", Georgia, serif);
+  color: var(--t-1, #ffffff);
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid transparent;
+  border-image: var(--grad, linear-gradient(110deg, #5ad8ff, #9b6cff 45%, #ff7eb6 75%, #f5c971)) 1;
+  display: inline-block;
+}
+
+/* Milestone timeline */
+#career-app .result-timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+#career-app .result-timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--f-cyan, #5ad8ff), var(--f-violet, #9b6cff), var(--f-rose, #ff7eb6));
+  border-radius: 2px;
+}
+
+#career-app .result-milestone {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+#career-app .result-milestone::before {
+  content: '';
+  position: absolute;
+  left: -24px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--f-gold, #f5c971);
+  box-shadow: 0 0 10px rgba(245, 201, 113, 0.5);
+}
+
+#career-app .result-milestone-stage {
+  color: var(--f-gold, #f5c971);
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+#career-app .result-milestone-time {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+  font-size: 12px;
+  font-family: var(--mono, "Space Mono", monospace);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+#career-app .result-milestone-goals {
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+
+#career-app .result-milestone-actions {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* List items (strengths, gaps, suggestions, resources, risks) */
+#career-app .result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#career-app .result-list-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+#career-app .result-list-icon {
+  flex-shrink: 0;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+#career-app .result-list-icon.gold { color: var(--f-gold, #f5c971); }
+#career-app .result-list-icon.cyan { color: var(--f-cyan, #5ad8ff); }
+#career-app .result-list-icon.rose { color: var(--f-rose, #ff7eb6); }
+#career-app .result-list-icon.violet { color: var(--f-violet, #9b6cff); }
+
+/* Action buttons at bottom */
+#career-app .result-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--career-card-border, rgba(180, 195, 255, 0.12));
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #career-app .result-actions {
+    flex-direction: column;
+  }
+  #career-app .cp-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

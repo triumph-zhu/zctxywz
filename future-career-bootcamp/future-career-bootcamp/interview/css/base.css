@@ -1,0 +1,101 @@
+/* =========================================================
+   Interview Simulator · Base Styles
+   作用域隔离：所有选择器限定在 #interview-app 内
+   ========================================================= */
+
+/* Reset - 仅影响 interview-app 内部元素 */
+#interview-app *, #interview-app *::before, #interview-app *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#interview-app {
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#interview-app a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+#interview-app a:hover {
+  text-decoration: underline;
+}
+
+#interview-app img, #interview-app svg {
+  display: block;
+  max-width: 100%;
+}
+
+#interview-app button, #interview-app input, #interview-app textarea, #interview-app select {
+  font: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#interview-app button {
+  cursor: pointer;
+}
+
+#interview-app ul, #interview-app ol {
+  list-style: none;
+}
+
+#interview-app h1, #interview-app h2, #interview-app h3,
+#interview-app h4, #interview-app h5, #interview-app h6 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+/* Utility classes - 限定在 interview-app 内 */
+#interview-app .container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+#interview-app .text-center { text-align: center; }
+#interview-app .text-secondary { color: var(--color-text-secondary); }
+#interview-app .text-sm { font-size: var(--text-sm); }
+#interview-app .text-xs { font-size: var(--text-xs); }
+
+#interview-app .mt-sm { margin-top: var(--space-sm); }
+#interview-app .mt-md { margin-top: var(--space-md); }
+#interview-app .mt-lg { margin-top: var(--space-lg); }
+#interview-app .mt-xl { margin-top: var(--space-xl); }
+#interview-app .mb-sm { margin-bottom: var(--space-sm); }
+#interview-app .mb-md { margin-bottom: var(--space-md); }
+#interview-app .mb-lg { margin-bottom: var(--space-lg); }
+
+#interview-app .hidden { display: none !important; }
+#interview-app .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Page transition */
+#interview-app .page {
+  display: none;
+}
+
+#interview-app .page.active {
+  display: block;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

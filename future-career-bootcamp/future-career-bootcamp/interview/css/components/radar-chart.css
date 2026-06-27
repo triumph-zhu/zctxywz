@@ -1,0 +1,39 @@
+/* Radar chart container */
+#interview-app .radar-chart-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg);
+  position: relative;
+}
+
+#interview-app .radar-chart-container canvas {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+/* Radar tooltip */
+#interview-app .radar-tooltip {
+  display: none;
+  position: absolute;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+  transform: translateX(-50%);
+}
+
+#interview-app .radar-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--color-primary);
+}

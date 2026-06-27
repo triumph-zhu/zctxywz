@@ -1,0 +1,74 @@
+/* =========================================================
+   Career Path Planner · Base Styles
+   作用域：#career-app
+   ========================================================= */
+
+#career-app *,
+#career-app *::before,
+#career-app *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#career-app {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+#career-app .page {
+  display: none;
+}
+
+#career-app .page.active {
+  display: block;
+  animation: careerFadeIn 0.4s ease-out;
+}
+
+@keyframes careerFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#career-app .container {
+  max-width: var(--career-max-width, 680px);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+/* Section title style - bootcamp consistent */
+#career-app .section-title {
+  font-family: var(--serif, "Noto Serif SC", Georgia, serif);
+  color: var(--t-1, #ffffff);
+  font-size: clamp(22px, 3vw, 30px);
+  margin: 10px 0 8px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+}
+
+#career-app .section-title b {
+  font-weight: 600;
+  background: var(--grad, linear-gradient(110deg, #5ad8ff, #9b6cff 45%, #ff7eb6 75%, #f5c971));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+#career-app .eyebrow {
+  color: var(--f-gold, #f5c971);
+  font-family: var(--mono, "Space Mono", monospace);
+  font-size: 12px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+#career-app .section-sub {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+  max-width: 560px;
+  font-weight: 300;
+  font-size: 15px;
+  margin: 0 0 24px;
+}

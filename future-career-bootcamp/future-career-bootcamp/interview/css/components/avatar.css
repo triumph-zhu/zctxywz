@@ -1,0 +1,102 @@
+/* Avatar / Interviewer face */
+
+#interview-app .interviewer-avatar {
+  width: 160px;
+  height: 220px;
+  margin: 0 auto;
+  /* Breathing animation */
+  animation: breathe 3.5s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* Faster breathing when thinking */
+#interview-app .avatar--thinking {
+  animation-duration: 2.5s;
+}
+
+/* Blink animation */
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+
+#interview-app .avatar-eyes {
+  animation: blink 4s infinite;
+  transform-origin: center;
+}
+
+/* Speaking mouth animation */
+@keyframes speak {
+  0%, 100% { ry: 3; }
+  50% { ry: 6; }
+}
+
+#interview-app .mouth-speaking {
+  animation: speak 0.3s infinite;
+}
+
+/* Expression states */
+#interview-app .avatar--smiling .mouth-speaking,
+#interview-app .avatar--smiling .mouth-thinking { display: none; }
+#interview-app .avatar--smiling .mouth-smile { display: block; }
+
+#interview-app .avatar--speaking .mouth-smile,
+#interview-app .avatar--speaking .mouth-thinking { display: none; }
+#interview-app .avatar--speaking .mouth-speaking { display: block; }
+#interview-app .avatar--speaking .avatar-eyes { animation: blink 4s infinite; }
+
+#interview-app .avatar--thinking .mouth-smile,
+#interview-app .avatar--thinking .mouth-speaking { display: none; }
+#interview-app .avatar--thinking .mouth-thinking { display: block; }
+#interview-app .avatar--thinking .avatar-eyes { animation: none; }
+#interview-app .avatar--thinking .avatar-eyebrows { transform: translateY(-3px); }
+
+/* Arm switching */
+#interview-app .avatar--thinking .avatar-arms--desk { display: none; }
+#interview-app .avatar--thinking .avatar-arms--chin { display: block; }
+#interview-app .avatar--speaking .avatar-arms--desk { display: block; }
+#interview-app .avatar--speaking .avatar-arms--chin { display: none; }
+#interview-app .avatar--smiling .avatar-arms--desk { display: block; }
+#interview-app .avatar--smiling .avatar-arms--chin { display: none; }
+
+/* Finger tapping when thinking */
+@keyframes fingerTap {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+#interview-app .avatar--thinking .right-hand {
+  animation: fingerTap 0.8s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+/* Nod animation - enhanced with multiple small rotations */
+@keyframes nod {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(4deg); }
+  40% { transform: rotate(-2deg); }
+  60% { transform: rotate(3deg); }
+  80% { transform: rotate(-1deg); }
+}
+
+#interview-app .avatar--nodding .avatar-head {
+  animation: nod 1.2s ease-in-out;
+  transform-origin: 100px 175px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #interview-app .interviewer-avatar,
+  #interview-app .avatar-eyes,
+  #interview-app .mouth-speaking,
+  #interview-app .avatar--thinking .right-hand {
+    animation: none !important;
+  }
+  #interview-app .avatar--nodding .avatar-head {
+    animation: none !important;
+  }
+}

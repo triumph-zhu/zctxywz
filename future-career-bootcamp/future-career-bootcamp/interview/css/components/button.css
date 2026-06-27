@@ -1,0 +1,127 @@
+/* Button component */
+#interview-app .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+}
+
+#interview-app .btn:active {
+  transform: scale(0.97);
+}
+
+#interview-app .btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+#interview-app .btn-primary:hover {
+  background: var(--color-accent-light);
+  box-shadow: var(--shadow-md);
+}
+
+#interview-app .btn-primary:disabled {
+  background: var(--color-text-light);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+#interview-app .btn-primary:disabled:active {
+  transform: none;
+}
+
+#interview-app .btn-secondary {
+  background: var(--color-surface);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+#interview-app .btn-secondary:hover {
+  background: var(--color-bg);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+#interview-app .btn-ghost {
+  color: var(--color-text-secondary);
+  padding: 8px 16px;
+}
+
+#interview-app .btn-ghost:hover {
+  color: var(--color-accent);
+  background: rgba(26, 188, 156, 0.08);
+}
+
+#interview-app .btn-lg {
+  padding: 14px 36px;
+  font-size: var(--text-lg);
+  border-radius: var(--radius-lg);
+}
+
+#interview-app .btn-sm {
+  padding: 6px 14px;
+  font-size: var(--text-sm);
+}
+
+#interview-app .btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-full);
+}
+
+/* Button group */
+#interview-app .btn-group {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+#interview-app .btn-group .btn-option {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  transition: all var(--transition-fast);
+}
+
+#interview-app .btn-group .btn-option:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+#interview-app .btn-group .btn-option.active {
+  border-color: var(--color-accent);
+  background: rgba(26, 188, 156, 0.1);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Ripple effect */
+#interview-app .btn-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}

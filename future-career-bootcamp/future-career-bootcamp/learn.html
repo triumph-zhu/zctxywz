@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学习资料 · Future Career Bootcamp</title>
+  <link rel="stylesheet" href="styles/global.css?v=3" />
+  <script>(function(){var t=localStorage.getItem('fcb-theme')||'dark';document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body data-page="learn">
+  <main class="container page">
+    <div class="reveal">
+      <div class="eyebrow">Learning Materials</div>
+      <h1 class="section-title">学习资料</h1>
+      <p class="section-sub">按期数浏览或搜索课程文稿、实战经验与求职方法。</p>
+    </div>
+
+    <!-- 期数入口 -->
+    <div class="reveal">
+      <div style="margin-bottom:16px;font-size:13px;letter-spacing:.08em;color:var(--t-3)">按期数浏览</div>
+      <div class="grid cols-3" id="cohort-list"></div>
+    </div>
+
+    <hr class="divider" style="margin:40px 0">
+
+    <div class="searchbar reveal">
+      <span class="icon">⚲</span>
+      <input id="search" type="text" placeholder="搜索简历、面试、职场沟通、职业规划……" />
+    </div>
+
+    <div class="filters reveal">
+      <div class="filter-row"><span class="flabel">期数</span><div id="f-cohort" class="filter-row" style="margin:0"></div></div>
+      <div class="filter-row"><span class="flabel">分类</span><div id="f-category" class="filter-row" style="margin:0"></div></div>
+      <div class="filter-row"><span class="flabel">标签</span><div id="f-tag" class="filter-row" style="margin:0"></div></div>
+    </div>
+
+    <div id="cohort-note" class="result-count"></div>
+    <div id="count" class="result-count"></div>
+    <div class="grid cols-3" id="list"></div>
+  </main>
+
+  <script src="scripts/data.js?v=3"></script>
+  <script src="scripts/data-loader.js?v=3"></script>
+  <script src="scripts/app.js?v=3"></script>
+</body>
+</html>

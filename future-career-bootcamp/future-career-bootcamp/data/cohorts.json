@@ -1,0 +1,44 @@
+[
+  {
+    "id": "cohort-7",
+    "period": "第7期",
+    "title": "第7期职场特训营",
+    "theme": "职业认知与求职表达",
+    "description": "面向即将进入实习、求职和职业探索阶段的学生，帮助大家建立职场认知、求职表达和长期成长能力。",
+    "courseCount": 2,
+    "messageCount": 3,
+    "featuredCourses": [
+      "职场认知与角色转变",
+      "简历优化与求职表达",
+      "面试技巧与自我介绍"
+    ]
+  },
+  {
+    "id": "cohort-8",
+    "period": "第8期",
+    "title": "第8期职场特训营",
+    "theme": "面试突破与职场沟通",
+    "description": "聚焦面试表达、沟通协作和实习适应，帮助学生更从容地进入真实职场场景。",
+    "courseCount": 2,
+    "messageCount": 3,
+    "featuredCourses": [
+      "面试技巧与自我介绍",
+      "职场沟通与向上管理",
+      "实习经验与职场适应"
+    ]
+  },
+  {
+    "id": "cohort-9",
+    "period": "第9期",
+    "title": "第9期职场特训营",
+    "theme": "职业规划与长期成长",
+    "description": "帮助学生从短期求职走向长期成长，建立职业规划意识和持续复盘能力。",
+    "courseCount": 2,
+    "messageCount": 3,
+    "featuredCourses": [
+      "实习经验与职场适应",
+      "职业规划与长期成长",
+      "长期成长与复盘方法"
+    ]
+  }
+]

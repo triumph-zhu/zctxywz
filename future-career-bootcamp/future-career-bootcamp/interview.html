@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>面试模拟 · Future Career Bootcamp</title>
+  <meta name="description" content="AI 驱动的职场面试模拟器，仿真面试场景，助你从容应对真实面试。" />
+  <!-- Bootcamp 全局样式 -->
+  <link rel="stylesheet" href="styles/global.css?v=3" />
+  <!-- Interview Simulator 样式（作用域隔离） -->
+  <link rel="stylesheet" href="interview/css/variables.css">
+  <link rel="stylesheet" href="interview/css/base.css">
+  <link rel="stylesheet" href="interview/css/animations.css">
+  <link rel="stylesheet" href="interview/css/components/button.css">
+  <link rel="stylesheet" href="interview/css/components/card.css">
+  <link rel="stylesheet" href="interview/css/components/modal.css">
+  <link rel="stylesheet" href="interview/css/components/avatar.css">
+  <link rel="stylesheet" href="interview/css/components/chat.css">
+  <link rel="stylesheet" href="interview/css/components/timer.css">
+  <link rel="stylesheet" href="interview/css/components/progress.css">
+  <link rel="stylesheet" href="interview/css/components/rating.css">
+  <link rel="stylesheet" href="interview/css/components/radar-chart.css">
+  <link rel="stylesheet" href="interview/css/pages/welcome.css">
+  <link rel="stylesheet" href="interview/css/pages/interview.css">
+  <link rel="stylesheet" href="interview/css/pages/report.css">
+  <!-- 页面专属样式 -->
+  <style>
+    /* 面试模拟器页面覆盖样式 */
+    .interview-hero {
+      position: relative;
+      padding-top: calc(var(--nav-h) + 48px);
+      padding-bottom: 32px;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+    }
+
+    /* 面试/报告页面激活时隐藏 hero */
+    .interview-hero.hidden {
+      opacity: 0;
+      max-height: 0;
+      padding: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .interview-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* interview-simulator 容器 */
+    #interview-app {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 确保 interview-simulator 的 page 容器不被 bootcamp 的 .page 样式影响 */
+    #interview-app .page {
+      display: none;
+      min-height: auto;
+    }
+    #interview-app .page.active {
+      display: block;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    /* Loading screen 样式 */
+    .app-loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    .app-loading.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .app-loading-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      animation: pulse 1.5s infinite;
+    }
+    .app-loading-text {
+      font-size: 18px;
+    }
+
+    /* 让 bootcamp 的 footer 不覆盖面试模拟器 */
+    .interview-wrap {
+      position: relative;
+      z-index: 1;
+      min-height: calc(100vh - var(--nav-h));
+    }
+
+    /* 面试场景全屏模式 - 覆盖 interview.css 中的高度计算 */
+    #interview-app .interview-page {
+      height: calc(100vh - var(--nav-h, 70px));
+      height: calc(100dvh - var(--nav-h, 70px));
+    }
+
+    /* 面试场景激活时，footer 也隐藏 */
+    body.interview-active .footer {
+      display: none;
+    }
+
+    /* 面试场景激活时，导航栏也隐藏 */
+    body.interview-active .nav {
+      display: none;
+    }
+
+    /* 面试场景激活时，interview-page 使用全屏 */
+    body.interview-active #interview-app .interview-page {
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    /* 面试场景激活时，cosmos 背景也隐藏（避免性能问题） */
+    body.interview-active #cosmos,
+    body.interview-active .vignette,
+    body.interview-active .orb {
+      display: none;
+    }
+  </style>
+  <!-- 主题初始化（与 bootcamp 其他页面一致） -->
+  <script>(function(){if(!localStorage.getItem('fcb-theme-v2')){localStorage.removeItem('fcb-theme');localStorage.setItem('fcb-theme-v2','1');}var t=localStorage.getItem('fcb-theme')||'dark';document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body data-page="interview">
+
+  <!-- Hero 标题区（bootcamp 风格） -->
+  <header class="interview-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Interview Simulator</div>
+        <h1 class="section-title" style="margin-bottom:8px">面试<b>模拟</b></h1>
+        <p class="section-sub">AI 驱动的仿真面试场景，从 HR 面到答辩面，沉浸式练习让你从容应对每一次真实面试。</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interview Simulator 容器 -->
+  <main class="interview-wrap container" id="interview-app">
+    <!-- Loading screen -->
+    <div class="app-loading" id="app-loading">
+      <div class="app-loading-icon">🎯</div>
+      <div class="app-loading-text">面试模拟器加载中...</div>
+    </div>
+    <!-- Page containers -->
+    <div class="page" id="page-welcome"></div>
+    <div class="page" id="page-interview"></div>
+    <div class="page" id="page-report"></div>
+  </main>
+
+  <!-- Bootcamp 全局脚本 -->
+  <script src="scripts/data.js?v=3"></script>
+  <script src="scripts/data-loader.js?v=3"></script>
+  <script src="scripts/app.js?v=3"></script>
+  <!-- Interview Simulator 入口（ES Module） -->
+  <script type="module" src="interview/js/app.js"></script>
+  <script>
+    // 面试场景切换时控制 UI 元素
+    window.addEventListener('hashchange', function() {
+      var hash = window.location.hash.slice(1) || 'welcome';
+      var hero = document.querySelector('.interview-hero');
+      var footer = document.querySelector('.footer');
+
+      if (hash === 'interview') {
+        // 面试场景：隐藏 hero、footer、cosmos 背景
+        if (hero) hero.classList.add('hidden');
+        document.body.classList.add('interview-active');
+      } else {
+        // 欢迎/报告页：显示 hero、footer、cosmos 背景
+        if (hero) hero.classList.remove('hidden');
+        document.body.classList.remove('interview-active');
+      }
+    });
+
+    // Hide loading screen once app is ready
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const loading = document.getElementById('app-loading');
+        if (loading) {
+          loading.classList.add('fade-out');
+          setTimeout(() => loading.remove(), 500);
+        }
+      }, 300);
+    });
+  </script>
+</body>
+</html>

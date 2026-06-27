@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>职业路径规划 · Future Career Bootcamp</title>
+  <meta name="description" content="AI 驱动的职业发展路径规划，基于你的背景和意向，智能生成个性化发展建议。" />
+  <!-- Bootcamp 全局样式 -->
+  <link rel="stylesheet" href="styles/global.css?v=3" />
+  <!-- Career Path 样式 -->
+  <link rel="stylesheet" href="career-path/css/variables.css">
+  <link rel="stylesheet" href="career-path/css/base.css">
+  <link rel="stylesheet" href="career-path/css/components/form.css">
+  <link rel="stylesheet" href="career-path/css/pages/form.css">
+  <link rel="stylesheet" href="career-path/css/pages/result.css">
+  <style>
+    .career-hero {
+      position: relative;
+      padding-top: calc(var(--nav-h) + 48px);
+      padding-bottom: 24px;
+    }
+    .career-hero .container { position: relative; z-index: 1; }
+    #career-app { position: relative; z-index: 1; padding-bottom: 40px; }
+    #career-app .page { display: none; min-height: auto; }
+    #career-app .page.active { display: block; animation: careerFadeIn 0.4s ease-out; }
+    @keyframes careerFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes cpShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+  </style>
+  <script>(function(){if(!localStorage.getItem('fcb-theme-v2')){localStorage.removeItem('fcb-theme');localStorage.setItem('fcb-theme-v2','1');}var t=localStorage.getItem('fcb-theme')||'dark';document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body data-page="careerpath">
+
+  <!-- Hero 标题区 -->
+  <header class="career-hero">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">Career Path Planner</div>
+        <h1 class="section-title" style="margin-bottom:8px">职业路径<b>规划</b></h1>
+        <p class="section-sub">填写你的背景与意向，AI 顾问为你智能分析最合适的职业发展路径与行动指南。</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Career Path 容器 -->
+  <main class="container" id="career-app">
+    <div class="page" id="page-form"></div>
+    <div class="page" id="page-result"></div>
+  </main>
+
+  <!-- Bootcamp 全局脚本 -->
+  <script src="scripts/data.js?v=3"></script>
+  <script src="scripts/data-loader.js?v=3"></script>
+  <script src="scripts/app.js?v=3"></script>
+  <!-- Career Path 入口 -->
+  <script type="module" src="career-path/js/app.js"></script>
+</body>
+</html>

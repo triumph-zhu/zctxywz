@@ -1,0 +1,357 @@
+/* Report page - 深色主题适配 */
+#interview-app .report-page {
+  min-height: auto;
+  background: transparent;
+  padding: var(--space-lg) var(--space-md);
+  -webkit-overflow-scrolling: touch;
+}
+
+#interview-app .report-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Header */
+#interview-app .report-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+#interview-app .report-title {
+  font-size: var(--text-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+#interview-app .report-meta {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Score card */
+#interview-app .report-score-card {
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+/* Ring + center score */
+#interview-app .report-score-ring {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto var(--space-md);
+}
+
+#interview-app .report-score-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#interview-app .report-score-number {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#interview-app .report-score-max {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+/* Grade badge */
+#interview-app .report-grade {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  padding: 6px 20px;
+  border-radius: var(--radius-full);
+  animation: gradeBadgeIn 0.6s ease-out 1.5s both;
+}
+
+#interview-app .report-grade--excellent { background: rgba(39,174,96,0.1); color: var(--color-success); }
+#interview-app .report-grade--good { background: rgba(52,152,219,0.1); color: var(--color-info); }
+#interview-app .report-grade--average { background: rgba(26,188,156,0.1); color: var(--color-accent); }
+#interview-app .report-grade--pass { background: rgba(243,156,18,0.1); color: #e67e22; }
+#interview-app .report-grade--poor { background: rgba(231,76,60,0.1); color: var(--color-danger); }
+
+@keyframes gradeBadgeIn {
+  from { opacity: 0; transform: scale(0.5) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Section */
+#interview-app .report-section {
+  margin-bottom: var(--space-lg);
+}
+
+#interview-app .report-section-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-accent);
+  display: inline-block;
+}
+
+/* Question review */
+#interview-app .report-question-item {
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+#interview-app .report-question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+#interview-app .report-question-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+#interview-app .report-question-score {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+#interview-app .report-question-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-sm);
+  font-style: italic;
+}
+
+#interview-app .report-question-response {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  padding: var(--space-sm);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+#interview-app .report-question-feedback {
+  font-size: var(--text-sm);
+  color: var(--color-accent-dark);
+  padding: var(--space-sm);
+  background: rgba(26, 188, 156, 0.05);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-accent);
+  line-height: 1.6;
+}
+
+/* Suggestions */
+#interview-app .report-suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+#interview-app .report-suggestion-item {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+#interview-app .report-suggestion-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+#interview-app .report-suggestion-text {
+  flex: 1;
+}
+
+/* Strengths & Weaknesses */
+#interview-app .report-sw-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+#interview-app .report-sw-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+#interview-app .report-sw-item .icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Actions */
+#interview-app .report-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #interview-app .report-page {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  #interview-app .report-score-ring {
+    width: 130px;
+    height: 130px;
+  }
+
+  #interview-app .report-score-number {
+    font-size: 40px;
+  }
+
+  #interview-app .report-score-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  #interview-app .report-actions {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  #interview-app .report-question-item {
+    padding: var(--space-sm);
+  }
+}
+
+@media (max-width: 400px) {
+  #interview-app .report-score-ring {
+    width: 110px;
+    height: 110px;
+  }
+
+  #interview-app .report-score-number {
+    font-size: 34px;
+  }
+}
+
+/* ===== 深色主题适配（bootcamp 集成） ===== */
+#interview-app .report-title {
+  color: var(--t-1, #ffffff);
+}
+
+#interview-app .report-meta {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+}
+
+#interview-app .report-score-card {
+  background: var(--card, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border, rgba(180, 195, 255, 0.12));
+  border-radius: var(--radius-lg);
+}
+
+#interview-app .report-score-max {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+}
+
+#interview-app .report-section-title {
+  color: var(--t-1, #ffffff);
+  border-bottom-color: var(--f-cyan, #5ad8ff);
+}
+
+#interview-app .report-question-item {
+  background: var(--card, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border, rgba(180, 195, 255, 0.12));
+  box-shadow: none;
+}
+
+#interview-app .report-question-label {
+  color: var(--t-1, #ffffff);
+}
+
+#interview-app .report-question-text {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+}
+
+#interview-app .report-question-response {
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+  background: rgba(255, 255, 255, 0.03);
+}
+
+#interview-app .report-question-feedback {
+  color: var(--f-cyan, #5ad8ff);
+  background: rgba(90, 216, 255, 0.06);
+  border-left-color: var(--f-cyan, #5ad8ff);
+}
+
+#interview-app .report-suggestion-item {
+  background: var(--card, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border, rgba(180, 195, 255, 0.12));
+  box-shadow: none;
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+}
+
+#interview-app .report-sw-item {
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+}
+
+#interview-app .report-actions .btn-primary {
+  background: var(--grad, linear-gradient(110deg, #5ad8ff, #9b6cff 45%, #ff7eb6 75%, #f5c971));
+  background-size: 220% 220%;
+  color: #0a0a12;
+  box-shadow: 0 14px 36px -12px var(--glow, rgba(120, 140, 255, 0.40));
+}
+
+#interview-app .report-actions .btn-secondary {
+  background: var(--card, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--border, rgba(180, 195, 255, 0.12));
+  color: var(--t-1, #ffffff);
+}
+
+#interview-app .report-actions .btn-secondary:hover {
+  border-color: var(--border-glow, rgba(155, 108, 255, 0.45));
+}
+
+/* Rating bars in dark mode */
+#interview-app .rating-item {
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+}
+
+#interview-app .rating-label {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+}
+
+#interview-app .rating-bar {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Grade badges in dark mode */
+#interview-app .report-grade--excellent { background: rgba(39,174,96,0.15); color: #2ecc71; }
+#interview-app .report-grade--good { background: rgba(52,152,219,0.15); color: #5dade2; }
+#interview-app .report-grade--average { background: rgba(26,188,156,0.15); color: #1abc9c; }
+#interview-app .report-grade--pass { background: rgba(243,156,18,0.15); color: #f5c971; }
+#interview-app .report-grade--poor { background: rgba(231,76,60,0.15); color: #ff7eb6; }

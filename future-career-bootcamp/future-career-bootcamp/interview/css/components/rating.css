@@ -1,0 +1,43 @@
+/* Rating bars */
+#interview-app .rating-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+#interview-app .rating-label {
+  min-width: 72px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+#interview-app .rating-track {
+  flex: 1;
+  height: 10px;
+  background: var(--color-divider);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+#interview-app .rating-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  width: 0;  /* Start from 0 for animation */
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: var(--color-accent);
+}
+
+#interview-app .rating-fill--high { background: var(--color-success); }
+#interview-app .rating-fill--medium { background: var(--color-accent); }
+#interview-app .rating-fill--low { background: var(--color-warning); }
+#interview-app .rating-fill--poor { background: var(--color-danger); }
+
+#interview-app .rating-score {
+  min-width: 40px;
+  text-align: right;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}

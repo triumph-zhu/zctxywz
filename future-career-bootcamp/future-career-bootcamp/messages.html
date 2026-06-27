@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>师兄师姐想对你说 · Future Career Bootcamp</title>
+  <link rel="stylesheet" href="styles/global.css?v=3" />
+  <script>(function(){var t=localStorage.getItem('fcb-theme')||'dark';document.documentElement.dataset.theme=t;})();</script>
+</head>
+<body data-page="messages">
+  <main class="container page">
+    <div class="reveal">
+      <div class="eyebrow">Experience Signals</div>
+      <h1 class="section-title">师兄师姐想对你说</h1>
+      <p class="section-sub">那些真实走过职场起点的人，把经验留给正在出发的你。</p>
+    </div>
+
+    <div class="searchbar reveal">
+      <span class="icon">⚲</span>
+      <input id="search" type="text" placeholder="搜索姓名、状态、寄语内容或标签……" />
+    </div>
+
+    <div class="filters reveal">
+      <div class="filter-row"><span class="flabel">期数</span><div id="f-cohort" class="filter-row" style="margin:0"></div></div>
+      <div class="filter-row"><span class="flabel">标签</span><div id="f-tag" class="filter-row" style="margin:0"></div></div>
+    </div>
+
+    <div id="count" class="result-count"></div>
+    <div class="grid cols-3" id="list"></div>
+  </main>
+
+  <script src="scripts/data.js?v=3"></script>
+  <script src="scripts/data-loader.js?v=3"></script>
+  <script src="scripts/app.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,294 @@
+/* =========================================================
+   Career Path · Form Components
+   ========================================================= */
+
+/* Progress bar */
+#career-app .cp-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+#career-app .cp-progress-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#career-app .cp-progress-fill {
+  height: 100%;
+  background: var(--grad, linear-gradient(110deg, #5ad8ff, #9b6cff 45%, #ff7eb6 75%, #f5c971));
+  border-radius: 4px;
+  transition: width var(--career-transition, 0.3s ease);
+}
+
+#career-app .cp-progress-text {
+  font-size: 12px;
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+  font-family: var(--mono, "Space Mono", monospace);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* Step title */
+#career-app .cp-step-title {
+  font-family: var(--serif, "Noto Serif SC", Georgia, serif);
+  color: var(--t-1, #ffffff);
+  font-size: 22px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+}
+
+#career-app .cp-step-desc {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+  font-size: 14px;
+  margin-bottom: 24px;
+  font-weight: 300;
+}
+
+/* Form group */
+#career-app .cp-form-group {
+  margin-bottom: 24px;
+}
+
+#career-app .cp-label {
+  display: block;
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+#career-app .cp-label .required {
+  color: var(--f-rose, #ff7eb6);
+  margin-left: 4px;
+}
+
+/* Text input */
+#career-app .cp-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--career-input-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--career-input-border, rgba(180, 195, 255, 0.15));
+  color: var(--t-1, #ffffff);
+  outline: none;
+  transition: border-color var(--career-transition, 0.3s ease), box-shadow var(--career-transition, 0.3s ease);
+  letter-spacing: 0.02em;
+}
+
+#career-app .cp-input::placeholder {
+  color: var(--t-3, rgba(198, 205, 236, 0.35));
+}
+
+#career-app .cp-input:focus {
+  border-color: var(--career-input-focus, rgba(155, 108, 255, 0.5));
+  box-shadow: 0 0 0 3px rgba(155, 108, 255, 0.12);
+}
+
+/* Textarea */
+#career-app .cp-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 15px;
+  background: var(--career-input-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--career-input-border, rgba(180, 195, 255, 0.15));
+  color: var(--t-1, #ffffff);
+  outline: none;
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.6;
+  transition: border-color var(--career-transition, 0.3s ease), box-shadow var(--career-transition, 0.3s ease);
+}
+
+#career-app .cp-textarea::placeholder {
+  color: var(--t-3, rgba(198, 205, 236, 0.35));
+}
+
+#career-app .cp-textarea:focus {
+  border-color: var(--career-input-focus, rgba(155, 108, 255, 0.5));
+  box-shadow: 0 0 0 3px rgba(155, 108, 255, 0.12);
+}
+
+/* Tag chips (multi-select / single-select) */
+#career-app .cp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+#career-app .cp-tag {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  background: var(--career-tag-bg, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--career-tag-border, rgba(180, 195, 255, 0.15));
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+  transition: all var(--career-transition, 0.3s ease);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#career-app .cp-tag:hover {
+  border-color: var(--career-card-hover, rgba(155, 108, 255, 0.45));
+  color: var(--t-1, #ffffff);
+}
+
+#career-app .cp-tag.active {
+  background: var(--career-tag-active-bg, rgba(155, 108, 255, 0.15));
+  border-color: var(--career-tag-active-border, rgba(155, 108, 255, 0.5));
+  color: var(--f-cyan, #5ad8ff);
+  font-weight: 500;
+}
+
+/* Custom input row */
+#career-app .cp-custom-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+#career-app .cp-custom-input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: var(--career-input-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--career-input-border, rgba(180, 195, 255, 0.15));
+  color: var(--t-1, #ffffff);
+  outline: none;
+}
+
+#career-app .cp-custom-input:focus {
+  border-color: var(--career-input-focus, rgba(155, 108, 255, 0.5));
+}
+
+#career-app .cp-custom-add {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  background: rgba(155, 108, 255, 0.15);
+  border: 1px solid rgba(155, 108, 255, 0.4);
+  color: var(--f-cyan, #5ad8ff);
+  font-weight: 500;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+#career-app .cp-custom-add:hover {
+  background: rgba(155, 108, 255, 0.25);
+}
+
+/* Buttons */
+#career-app .cp-btn-group {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+#career-app .cp-btn {
+  padding: 12px 28px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: all 0.25s;
+  border: none;
+  outline: none;
+}
+
+#career-app .cp-btn-primary {
+  background: var(--grad, linear-gradient(110deg, #5ad8ff, #9b6cff 45%, #ff7eb6 75%, #f5c971));
+  background-size: 220% 220%;
+  color: #0a0a12;
+  box-shadow: 0 14px 36px -12px var(--glow, rgba(120, 140, 255, 0.40));
+  animation: cpFlow 10s ease infinite;
+}
+
+#career-app .cp-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px -10px var(--glow, rgba(120, 140, 255, 0.50));
+}
+
+#career-app .cp-btn-primary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+#career-app .cp-btn-ghost {
+  background: var(--career-card-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--career-card-border, rgba(180, 195, 255, 0.12));
+  color: var(--t-2, rgba(236, 239, 255, 0.82));
+}
+
+#career-app .cp-btn-ghost:hover {
+  border-color: var(--career-card-hover, rgba(155, 108, 255, 0.45));
+  color: var(--t-1, #ffffff);
+}
+
+@keyframes cpFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Analyzing overlay */
+#career-app .cp-analyzing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#career-app .cp-analyzing-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: cpPulse 2s ease-in-out infinite;
+}
+
+#career-app .cp-analyzing-text {
+  color: var(--t-1, #ffffff);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+#career-app .cp-analyzing-sub {
+  color: var(--t-3, rgba(198, 205, 236, 0.50));
+  font-size: 14px;
+}
+
+@keyframes cpPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Glass card */
+#career-app .cp-card {
+  background: var(--career-card-bg, rgba(255, 255, 255, 0.04));
+  border: 1px solid var(--career-card-border, rgba(180, 195, 255, 0.12));
+  border-radius: var(--career-radius, 12px);
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+#career-app .cp-card:hover {
+  border-color: var(--career-card-hover, rgba(155, 108, 255, 0.45));
+  box-shadow: 0 0 0 1px var(--career-card-hover, rgba(155, 108, 255, 0.45)), 0 20px 50px -20px rgba(120, 140, 255, 0.3);
+}

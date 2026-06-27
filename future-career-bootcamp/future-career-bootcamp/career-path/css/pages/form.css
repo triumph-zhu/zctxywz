@@ -1,0 +1,39 @@
+/* =========================================================
+   Career Path · Form Page
+   ========================================================= */
+
+#career-app .form-page {
+  padding-bottom: 60px;
+}
+
+/* Step container with transition */
+#career-app .cp-step {
+  animation: cpStepIn 0.35s ease-out;
+}
+
+@keyframes cpStepIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #career-app .cp-tag {
+    padding: 7px 13px;
+    font-size: 12.5px;
+  }
+
+  #career-app .cp-step-title {
+    font-size: 19px;
+  }
+
+  #career-app .cp-btn-group {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  #career-app .cp-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
